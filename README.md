@@ -4,6 +4,13 @@
 
 <div align="center">
 
+**🌐 [Live Demo → nutritrack-macro-dashboard.vercel.app](https://nutritrack-macro-dashboard.vercel.app)**
+
+</div>
+
+
+<div align="center">
+
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-Vanilla-1572B6?style=for-the-badge&logo=css3&logoColor=white)

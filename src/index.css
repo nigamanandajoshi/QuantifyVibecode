@@ -708,6 +708,251 @@ strong {
    ═══════════════════════════════════════════════════════════════ */
 
 /* ──────────────────────────────────────────────
+   HEADER RIGHT — profile chip + toggle wrapper
+   ────────────────────────────────────────────── */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Profile chip button in the header */
+.profile-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  border-color: rgba(124, 111, 247, 0.25);
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+}
+
+.profile-chip:hover {
+  border-color: rgba(124, 111, 247, 0.5);
+  color: var(--text-primary);
+}
+
+.profile-chip__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-accent-primary);
+  font-weight: 600;
+}
+
+.profile-chip__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+/* ──────────────────────────────────────────────
+   PROFILE MODAL
+   ────────────────────────────────────────────── */
+.profile-backdrop {
+  /* Override the budget modal's dark tint for a subtler entrance */
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.profile-modal {
+  /* Wider than the warning modal — it's a form */
+  max-width: 600px;
+  text-align: left;
+  gap: var(--space-5);
+  border-color: var(--glass-border-hover);
+  padding: var(--space-8);
+}
+
+.profile-modal__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.profile-modal__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 12px rgba(124, 111, 247, 0.5));
+}
+
+.profile-modal__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-1);
+}
+
+.profile-modal__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* 3-column input row: weight / height / age */
+.profile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* Gender pill selector */
+.gender-pills {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.gender-pill {
+  flex: 1;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  transition: var(--transition-spring);
+  text-align: center;
+}
+
+.gender-pill:hover:not(.gender-pill--active) {
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary);
+}
+
+.gender-pill--active {
+  background: rgba(124, 111, 247, 0.15);
+  border-color: rgba(124, 111, 247, 0.45);
+  color: var(--color-accent-primary);
+  font-weight: 600;
+}
+
+/* Activity level select */
+.activity-select-wrapper {
+  position: relative;
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.form-select option {
+  background: #1a1a2e;
+  color: var(--text-primary);
+}
+
+/* ── Live TDEE Preview Card ── */
+.tdee-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: rgba(124, 111, 247, 0.07);
+  border: 1px solid rgba(124, 111, 247, 0.20);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  flex-wrap: wrap;
+}
+
+.tdee-preview__col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tdee-preview__label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+}
+
+.tdee-preview__value {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.tdee-preview__value small {
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  -webkit-text-fill-color: var(--text-muted);
+  color: var(--text-muted);
+}
+
+.tdee-preview__goal {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tdee-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--glass-border);
+  flex-shrink: 0;
+}
+
+/* Validation errors */
+.profile-errors {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  color: #f87171;
+}
+
+/* Profile modal action row */
+.profile-modal__actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* Responsive: stack profile row on mobile */
+@media (max-width: 560px) {
+  .profile-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tdee-preview {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tdee-divider { display: none; }
+  .profile-modal__actions { flex-direction: column; }
+  .header-right { width: 100%; flex-direction: column; align-items: flex-start; }
+}
+
+
+
+/* ──────────────────────────────────────────────
    FITNESS GOAL TOGGLE (Vibe Check)
    ────────────────────────────────────────────── */
 .goal-toggle {

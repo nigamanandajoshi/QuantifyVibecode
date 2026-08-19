@@ -25,7 +25,7 @@ export function ProgressBar() {
     return 'progress-fill--safe';
   }, [isOverBudget, percent]);
 
-  const remaining = Math.max(0, activeGoal.maxCalories - totals.calories);
+  const remaining = parseFloat(Math.max(0, activeGoal.maxCalories - totals.calories).toFixed(2));
 
   return (
     <div className="progress-block progress-block--main">
